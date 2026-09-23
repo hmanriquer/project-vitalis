@@ -33,11 +33,25 @@ PR creation is **blocked by a Cursor hook** until `pnpm preflight` passes. Run p
 - **Client packages**: TanStack Query (server data), Zustand (cart + short UI flows only), TanStack Form + shadcn fields, Zod both sides, Tabler icons (not Lucide in shipped UI).
 - **Clean boundaries**: Routes without SQL; SQL without Mercado Pago calls; payments uses a port for tests.
 
+## Role skills (multi-tool handoff)
+
+Invoke one line instead of pasting long prompts:
+
+| Role | Skill | Typical trigger |
+| --- | --- | --- |
+| Planner | `vitalis-planning` | Break VITALIS-\<N\> into cards + handoff |
+| Backend | `vitalis-backend` | Card lane `data/api` |
+| Frontend | `vitalis-frontend` | Card lane `ui` |
+| Fullstack | `vitalis-fullstack` | Human fallback when OpenCode/Codex is out of quota — not planned on cards |
+| Auditor | `vitalis-audit` | Review before merge; no code changes |
+
+Shared handoff format: [`.agents/references/vitalis-handoff-protocol.md`](.agents/references/vitalis-handoff-protocol.md). Start from [`.agents/tasks/handoff.md`](.agents/tasks/handoff.md).
+
 ## Workflow
 
 1. **Brainstorm** (`brainstorming`) before new features or behavior changes.
-2. **Plan** (`writing-plans`) after design approval.
-3. **Implement** with **TDD** (`test-driven-development`) where behavior is specified.
+2. **Plan** (`vitalis-planning` or `writing-plans`) after design approval.
+3. **Implement** with **TDD** (`test-driven-development`) via a role skill above.
 4. **Debug** with `systematic-debugging`; finish with `verification-before-completion`.
 5. **Preflight** (`pnpm preflight`) before any PR.
 6. **Ship** using `shipping-a-change` and `finishing-a-development-branch`.
@@ -47,6 +61,11 @@ PR creation is **blocked by a Cursor hook** until `pnpm preflight` passes. Run p
 | Skill | Use when |
 | --- | --- |
 | `vitalis-conventions` | Any code in this repo — modules, stock, money, layout |
+| `vitalis-planning` | Planner role — break issue into task cards and handoff |
+| `vitalis-backend` | Backend role — data/api card execution |
+| `vitalis-frontend` | Frontend role — ui card execution |
+| `vitalis-fullstack` | Fallback when OpenCode/Codex quota exhausted — not planner-assigned |
+| `vitalis-audit` | Auditor role — review, audit.md, merge/reject |
 | `shipping-a-change` | Before PR or push |
 | `using-superpowers` | Starting work — how to invoke skills |
 | `brainstorming` | New features, design, behavior |

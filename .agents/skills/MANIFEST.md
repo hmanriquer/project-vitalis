@@ -7,6 +7,11 @@ All skills live under `.agents/skills/`. Update by re-copying from the pinned so
 | Skill | Source |
 | --- | --- |
 | vitalis-conventions | This repository |
+| vitalis-planning | This repository |
+| vitalis-backend | This repository |
+| vitalis-frontend | This repository |
+| vitalis-fullstack | This repository |
+| vitalis-audit | This repository |
 | shipping-a-change | This repository |
 
 ## Cursor plugin cache (copied verbatim)
