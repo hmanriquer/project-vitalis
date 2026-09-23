@@ -6,7 +6,18 @@
     "useIgnoreFile": true
   },
   "files": {
-    "includes": ["**", "!**/.agents/skills", "!**/node_modules"]
+    "includes": [
+      "**",
+      "!**/.agents/skills",
+      "!**/node_modules",
+      "!**/worker-configuration.d.ts",
+      "!**/src/web/routeTree.gen.ts"
+    ]
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
   },
   "formatter": {
     "enabled": true,
