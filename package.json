@@ -1,0 +1,18 @@
+{
+  "name": "project-vitalis",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "git config core.hooksPath .githooks",
+    "check": "biome check --write .",
+    "lint": "biome ci .",
+    "format": "biome format --write .",
+    "typecheck": "node -e \"console.log('typecheck: skipped (no tsconfig yet)')\"",
+    "test": "node -e \"console.log('test: skipped (no test runner yet)')\"",
+    "preflight": ".agents/hooks/preflight.sh"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.0"
+  },
+  "packageManager": "pnpm@10.0.0"
+}

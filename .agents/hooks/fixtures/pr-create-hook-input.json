@@ -1,0 +1,1 @@
+{ "hook_event_name": "beforeShellExecution", "command": "gh pr create --title test" }

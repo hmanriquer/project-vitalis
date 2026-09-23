@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": ".agents/hooks/gate-pr.sh",
+        "matcher": "gh\\s+pr\\s+create",
+        "failClosed": true
+      }
+    ],
+    "beforeMCPExecution": [
+      {
+        "command": ".agents/hooks/gate-pr.sh",
+        "failClosed": true
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": ".cursor/hooks/format-after-edit.sh"
+      }
+    ]
+  }
+}

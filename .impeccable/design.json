@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-23T06:55:00.000Z",
+  "title": "Design System: Agbegilere Botanical",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Fired Clay",
+        "canonical": "#781f00",
+        "tonalRamp": [
+          "#2a0b00",
+          "#3a0a00",
+          "#5c1400",
+          "#781f00",
+          "#9a3412",
+          "#b84a1a",
+          "#ffb59f",
+          "#ffdbd1"
+        ]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Medicinal Foliage",
+        "canonical": "#486458",
+        "tonalRamp": [
+          "#032017",
+          "#1a2f27",
+          "#304c41",
+          "#486458",
+          "#5a7a6b",
+          "#7a9a8a",
+          "#aecebe",
+          "#caeada"
+        ]
+      },
+      "tertiary": {
+        "role": "tertiary",
+        "displayName": "Ancestral Brass",
+        "canonical": "#633300",
+        "tonalRamp": [
+          "#1a0d00",
+          "#2f1500",
+          "#4a2200",
+          "#633300",
+          "#854600",
+          "#a35a00",
+          "#ffb77d",
+          "#ffdcc3"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Sacred Linen",
+        "canonical": "#fcf9f4",
+        "tonalRamp": [
+          "#8b8782",
+          "#a8a49f",
+          "#c4c0bb",
+          "#dcdad5",
+          "#e5e2dd",
+          "#ebe8e3",
+          "#f0ede9",
+          "#fcf9f4"
+        ]
+      },
+      "on-surface": {
+        "role": "neutral",
+        "displayName": "Archive Ink",
+        "canonical": "#1c1c19",
+        "tonalRamp": [
+          "#0a0a09",
+          "#121210",
+          "#1c1c19",
+          "#31302d",
+          "#4a4844",
+          "#57423c",
+          "#78716a",
+          "#8b716a"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline-xl": {
+        "displayName": "Display XL",
+        "purpose": "Collection heroes and apothecary banners on desktop."
+      },
+      "headline-lg": {
+        "displayName": "Display LG",
+        "purpose": "Category titles and Latin classifications."
+      },
+      "title-md": {
+        "displayName": "Title",
+        "purpose": "Card titles, dialog headings, checkout section labels."
+      },
+      "body-lg": {
+        "displayName": "Body Large",
+        "purpose": "Long descriptions and dosing prose."
+      },
+      "body-md": {
+        "displayName": "Body",
+        "purpose": "Default UI and commerce copy."
+      },
+      "label-sm": {
+        "displayName": "Specimen Label",
+        "purpose": "Uppercase table headers and lot metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-hover",
+        "value": "0 8px 24px -4px rgba(120, 31, 0, 0.06), 0 2px 6px -1px rgba(120, 31, 0, 0.04)",
+        "purpose": "Warm elevation on product cards and interactive tiles (tint from primary #781f00)."
+      },
+      {
+        "name": "overlay-drawer",
+        "value": "0 16px 36px -6px rgba(28, 28, 25, 0.12), 0 4px 12px -2px rgba(28, 28, 25, 0.04)",
+        "purpose": "Drawers, sheets, and flyouts (tint from on-surface #1c1c19)."
+      },
+      {
+        "name": "nav-frosted",
+        "value": "background: rgba(252, 249, 244, 0.88); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(222, 192, 183, 0.6)",
+        "purpose": "Pinned header and cart chrome over botanical photography (surface + outline-variant)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for hover, focus, and drawer transitions."
+      },
+      {
+        "name": "duration-fast",
+        "value": "150ms",
+        "purpose": "Buttons, chips, and focus rings."
+      },
+      {
+        "name": "duration-medium",
+        "value": "250ms",
+        "purpose": "Cards and panel slide-overs."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "768px", "purpose": "Tablet grid and filter panels." },
+      { "name": "lg", "value": "1280px", "purpose": "Desktop 12-column catalog layout." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "ds-btn-primary",
+      "description": "High-intent commerce actions (añadir al carrito, pagar).",
+      "html": "<button type=\"button\" class=\"ds-btn-primary\">Añadir al carrito</button>",
+      "css": ".ds-btn-primary { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 14px; font-weight: 600; line-height: 20px; letter-spacing: 0.01em; color: #ffffff; background: #781f00; border: none; border-radius: 0.5rem; padding: 0.625rem 1.25rem; cursor: pointer; transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-primary:hover { background: #9a3412; } .ds-btn-primary:focus-visible { outline: 2px solid #9a3412; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "ds-btn-secondary",
+      "description": "Secondary actions and filters.",
+      "html": "<button type=\"button\" class=\"ds-btn-secondary\">Ver catálogo</button>",
+      "css": ".ds-btn-secondary { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 14px; font-weight: 600; line-height: 20px; color: #486458; background: transparent; border: 1px solid #486458; border-radius: 0.5rem; padding: 0.625rem 1.25rem; cursor: pointer; transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-secondary:hover { background: rgba(199, 231, 215, 0.35); } .ds-btn-secondary:focus-visible { outline: 2px solid #486458; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "ds-btn-ghost",
+      "description": "Editorial links with optional arrow.",
+      "html": "<button type=\"button\" class=\"ds-btn-ghost\">Explorar preparaciones <svg class=\"ds-btn-ghost-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 0.375rem; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 14px; font-weight: 600; color: #1c1c19; background: transparent; border: none; border-bottom: 1px solid #e5e2dd; border-radius: 0; padding: 0.25rem 0; cursor: pointer; transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-ghost:hover { color: #781f00; border-bottom-color: #781f00; } .ds-btn-ghost:focus-visible { outline: 2px solid #781f00; outline-offset: 4px; } .ds-btn-ghost-icon { flex-shrink: 0; }"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": "ds-card-product",
+      "description": "Catalog tile with botanical title and verified origin.",
+      "html": "<article class=\"ds-card-product\"><div class=\"ds-card-product-media\"></div><div class=\"ds-card-product-body\"><h3 class=\"ds-card-product-title\">Eucalyptus globulus</h3><p class=\"ds-card-product-sub\">Tintura · 30 ml</p><p class=\"ds-card-product-price\">$289.00 MXN</p><span class=\"ds-badge-seal-inline\">Origen verificado</span></div></article>",
+      "css": ".ds-card-product { background: #ffffff; border: 1px solid #e5e2dd; border-radius: 1rem; overflow: hidden; transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-card-product:hover { box-shadow: 0 8px 24px -4px rgba(120, 31, 0, 0.06), 0 2px 6px -1px rgba(120, 31, 0, 0.04); } .ds-card-product-media { aspect-ratio: 4 / 5; background: #f6f3ee; } .ds-card-product-body { padding: 1rem; } .ds-card-product-title { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; line-height: 28px; color: #1c1c19; margin: 0 0 0.25rem; } .ds-card-product-sub { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 14px; line-height: 22px; color: #57423c; margin: 0 0 0.5rem; } .ds-card-product-price { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 14px; font-weight: 600; color: #1c1c19; margin: 0 0 0.75rem; } .ds-badge-seal-inline { display: inline-block; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #854600; background: rgba(133, 70, 0, 0.1); border: 1px solid rgba(133, 70, 0, 0.3); border-radius: 9999px; padding: 0.25rem 0.5rem; }"
+    },
+    {
+      "name": "Herbal Chip",
+      "kind": "chip",
+      "refersTo": "ds-chip-herbal",
+      "description": "Filter and ingredient tags.",
+      "html": "<span class=\"ds-chip-herbal\">Decocciones (Agbo)</span>",
+      "css": ".ds-chip-herbal { display: inline-block; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; line-height: 16px; color: #4c695c; background: #c7e7d7; border-radius: 9999px; padding: 0.25rem 0.75rem; }"
+    },
+    {
+      "name": "Authenticity Seal",
+      "kind": "custom",
+      "refersTo": "ds-badge-seal",
+      "description": "Brass seal with leaf mark for provenance.",
+      "html": "<span class=\"ds-badge-seal\" role=\"img\" aria-label=\"Origen verificado\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#854600\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 3c-4 4-7 7-7 11a7 7 0 0 0 14 0c0-4-3-7-7-11z\"/></svg> Origen verificado</span>",
+      "css": ".ds-badge-seal { display: inline-flex; align-items: center; gap: 0.375rem; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #633300; background: rgba(133, 70, 0, 0.1); border: 1px solid rgba(133, 70, 0, 0.3); border-radius: 9999px; padding: 0.25rem 0.625rem; }"
+    },
+    {
+      "name": "Search Input",
+      "kind": "input",
+      "refersTo": "ds-input-search",
+      "description": "Global search with primary focus ring.",
+      "html": "<label class=\"ds-input-search-wrap\"><span class=\"ds-input-search-label\">Buscar remedios</span><input type=\"search\" class=\"ds-input-search\" placeholder=\"Tinturas, jabones, resinas…\" /></label>",
+      "css": ".ds-input-search-wrap { display: flex; flex-direction: column; gap: 0.25rem; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; } .ds-input-search-label { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: #57423c; } .ds-input-search { font-size: 14px; line-height: 22px; color: #1c1c19; background: #ffffff; border: 1px solid #e5e2dd; border-radius: 0.5rem; padding: 0.625rem 0.75rem; transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-input-search::placeholder { color: #57423c; opacity: 0.7; } .ds-input-search:hover { border-color: #dec0b7; } .ds-input-search:focus-visible { border-color: #781f00; outline: none; box-shadow: 0 0 0 3px rgba(154, 52, 18, 0.12); }"
+    },
+    {
+      "name": "Checkbox",
+      "kind": "input",
+      "refersTo": "ds-checkbox",
+      "description": "Apothecary-style verification checkbox.",
+      "html": "<label class=\"ds-checkbox\"><input type=\"checkbox\" class=\"ds-checkbox-input\" checked /><span class=\"ds-checkbox-box\" aria-hidden=\"true\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12l5 5L20 7\"/></svg></span><span class=\"ds-checkbox-label\">Acepto las contraindicaciones</span></label>",
+      "css": ".ds-checkbox { display: inline-flex; align-items: flex-start; gap: 0.5rem; cursor: pointer; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 14px; line-height: 22px; color: #1c1c19; } .ds-checkbox-input { position: absolute; opacity: 0; width: 0; height: 0; } .ds-checkbox-box { display: flex; align-items: center; justify-content: center; width: 1.125rem; height: 1.125rem; border: 1px solid #dec0b7; border-radius: 0.25rem; background: #ffffff; flex-shrink: 0; margin-top: 0.125rem; transition: background 150ms cubic-bezier(0.4, 0, 0.2, 1), border-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-checkbox-input:checked + .ds-checkbox-box { background: #486458; border-color: #486458; } .ds-checkbox-input:focus-visible + .ds-checkbox-box { outline: 2px solid #486458; outline-offset: 2px; } .ds-checkbox-input:not(:checked) + .ds-checkbox-box svg { opacity: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Apothecary Specimen Archive",
+    "overview": "This design system embodies refined African minimalism—a modern, respectful convergence of Yoruba herbal tradition and contemporary digital commerce. It serves conscious wellness seekers, herbalists, and diaspora communities who want authentic traditional preparations inside a premium, trustworthy interface. The shop operates in Spanish (es-MX) with prices in MXN.",
+    "keyCharacteristics": [
+      "Specimen-archive editorial rhythm with commerce density where checkout demands it.",
+      "Tonal depth over floating cards at rest; motion and shadow respond to state.",
+      "Token-faithful palette: every UI color resolves to a frontmatter colors.* key.",
+      "Spanish UI copy; Latin botanical names preserved; Yoruba product names where culturally accurate.",
+      "Operate mode for shop, cart, checkout, account, and admin."
+    ],
+    "rules": [
+      {
+        "name": "The Fired-Clay Restraint Rule",
+        "body": "primary (#781f00) should cover no more than roughly 10% of any screen. Its rarity is the point; larger warm areas use primary-container (#9a3412).",
+        "section": "colors"
+      },
+      {
+        "name": "The One Palette Rule",
+        "body": "Do not introduce hex values outside the frontmatter colors map. If a new role is needed, extend the Stitch export first, then update prose and Tailwind together.",
+        "section": "colors"
+      },
+      {
+        "name": "The Specimen Label Rule",
+        "body": "Technical and table headers use label-sm (10px, weight 700, letter-spacing 0.08em) in uppercase Spanish where appropriate (e.g. LOTE, DOSIS).",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces are flat at rest. Shadow appears only as a response to hover, elevation, or focus—not as decoration.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do map every UI color to a frontmatter colors.* token and keep Tailwind/shadcn variables in sync with this file.",
+      "Do write all shipped UI copy in Spanish (es-MX); show Latin botanical names and Yoruba product names where accurate.",
+      "Do use @tabler/icons-react for standard icons; use inline SVG for cultural marks.",
+      "Do compose screens inside feature folders; keep components/ui limited to shadcn primitives.",
+      "Do consult vitalis-conventions and Impeccable for polish, audit, and harden passes before release."
+    ],
+    "donts": [
+      "Don't paste ad hoc hex values (including legacy prose colors) that are not in the Stitch frontmatter.",
+      "Don't ship Lucide icons in production UI; replace shadcn template defaults with Tabler.",
+      "Don't add drop shadows on cards at rest; use borders and surface steps first.",
+      "Don't use English for customer-facing labels in the shop, checkout, or account flows.",
+      "Don't duplicate skills or agent instructions outside .agents/skills/ and root AGENTS.md."
+    ]
+  }
+}
