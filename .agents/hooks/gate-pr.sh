@@ -29,6 +29,7 @@ else
 fi
 
 if [[ "$should_gate" != true ]]; then
+  echo '{ "permission": "allow" }'
   exit 0
 fi
 
@@ -36,7 +37,9 @@ echo "PR gate: running preflight before pull request creation..." >&2
 
 if ! "$ROOT/.agents/hooks/preflight.sh" >&2; then
   echo "PR gate: preflight failed. Fix lint/format issues, then retry gh pr create." >&2
+  echo '{ "permission": "deny", "agent_message": "PR gate: preflight failed. Fix lint/format issues, then retry gh pr create." }'
   exit 2
 fi
 
+echo '{ "permission": "allow" }'
 exit 0
