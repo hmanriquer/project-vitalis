@@ -43,7 +43,7 @@
     "@cloudflare/vitest-pool-workers": "^0.22.0",
     "@tailwindcss/vite": "^4.3.3",
     "@tanstack/router-plugin": "^1.168.40",
-    "@types/node": "^22.15.0",
+    "@types/node": "^24.0.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "@vitejs/plugin-react": "^5.0.0",
@@ -57,5 +57,8 @@
     "vitest-browser-react": "^2.3.0",
     "wrangler": "^4.136.3"
   },
-  "packageManager": "pnpm@10.0.0"
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@10.34.5+sha512.a4ee05f2f73658255bd6a89859c065a45c28a57daefae2c893a168ee2b73168c37b91e83e57ea67654ad03f03031746430e8bce38e362e042605fb8abc80192e"
 }

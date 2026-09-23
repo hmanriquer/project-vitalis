@@ -4,8 +4,8 @@ Mexico-only e-commerce for native medicine and Yoruba-related products. See [AGE
 
 ## Prerequisites
 
-- Node.js 22+
-- [pnpm](https://pnpm.io/) 10
+- Node.js 24 LTS (`engines.node`)
+- [pnpm](https://pnpm.io/) via Corepack (`packageManager` in `package.json`)
 - Chromium for Vitest Browser Mode: `pnpm exec playwright install chromium`
 
 ## Setup
