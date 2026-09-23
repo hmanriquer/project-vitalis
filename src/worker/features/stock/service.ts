@@ -1,17 +1,25 @@
 import { eq, sql } from 'drizzle-orm';
 import type { Db } from '@/worker/db/client';
-import { reservations, variants } from '@/worker/db/schema';
+import { reservations, stockAuditLogs, variants } from '@/worker/db/schema';
 import {
   InvalidStockOperationError,
   type StockReservationItem,
   StockShortageError,
 } from '@/worker/features/stock/types';
+import { AppError } from '@/worker/lib/errors';
 import { type Clock, systemClock } from '@/worker/services/clock';
 import { cryptoIdGenerator, type IdGenerator } from '@/worker/services/ids';
 
 export type StockServiceDeps = {
   ids?: IdGenerator;
   clock?: Clock;
+};
+
+export type ManualStockCorrectionParams = {
+  variantId: string;
+  newOnHand: number;
+  reason: string;
+  actorId?: string;
 };
 
 type BatchQuery = Parameters<Db['batch']>[0][number];
@@ -155,4 +163,60 @@ export async function recordWhatsAppSale(
   } catch (error) {
     await throwShortageOrRethrow(db, items, error);
   }
+}
+
+export async function manualStockCorrection(
+  db: Db,
+  params: ManualStockCorrectionParams,
+  deps: StockServiceDeps = {},
+): Promise<void> {
+  const reason = params.reason?.trim() ?? '';
+  if (reason.length === 0) {
+    throw new AppError('invalid_argument', 'Se requiere un motivo para el ajuste manual', 400);
+  }
+
+  const [variant] = await db.select().from(variants).where(eq(variants.id, params.variantId));
+  if (!variant) {
+    throw new AppError('not_found', 'Variante no encontrada', 404);
+  }
+  if (params.newOnHand < variant.reserved) {
+    throw new AppError(
+      'invalid_stock_invariant',
+      'El stock físico no puede ser menor a las unidades reservadas',
+      400,
+    );
+  }
+
+  const ids = deps.ids ?? cryptoIdGenerator;
+  const clock = deps.clock ?? systemClock;
+  const correctedAt = clock.now();
+
+  await runBatch(db, [
+    db
+      .update(variants)
+      .set({ onHand: params.newOnHand, updatedAt: correctedAt })
+      .where(eq(variants.id, params.variantId)),
+    db.insert(stockAuditLogs).values({
+      id: ids.newToken(),
+      variantId: params.variantId,
+      previousOnHand: variant.onHand,
+      newOnHand: params.newOnHand,
+      reason,
+      actorId: params.actorId ?? null,
+      createdAt: correctedAt,
+    }),
+  ]);
+}
+
+export async function returnPaidOrderStock(db: Db, items: StockReservationItem[]): Promise<void> {
+  assertPositiveQuantities(items);
+
+  const updates = items.map((item) =>
+    db
+      .update(variants)
+      .set({ onHand: sql`${variants.onHand} + ${item.quantity}` })
+      .where(eq(variants.id, item.variantId)),
+  );
+
+  await runBatch(db, updates);
 }
