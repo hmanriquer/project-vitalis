@@ -5,12 +5,14 @@
       {
         "command": ".agents/hooks/gate-pr.sh",
         "matcher": "gh\\s+pr\\s+create",
+        "timeout": 180,
         "failClosed": true
       }
     ],
     "beforeMCPExecution": [
       {
         "command": ".agents/hooks/gate-pr.sh",
+        "timeout": 180,
         "failClosed": true
       }
     ],
