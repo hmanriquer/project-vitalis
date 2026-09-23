@@ -22,6 +22,12 @@ run_step() {
 run_step "pnpm check" pnpm check
 run_step "pnpm lint" pnpm lint
 run_step "pnpm typecheck" pnpm typecheck
+
+if grep -q '"playwright"' package.json 2>/dev/null; then
+  echo "preflight: ensuring Playwright chromium is installed..."
+  pnpm exec playwright install chromium
+fi
+
 run_step "pnpm test" pnpm test
 
 echo "preflight: all checks passed"
