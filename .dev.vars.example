@@ -1,0 +1,10 @@
+# Copy to .dev.vars for local development. Never commit .dev.vars.
+
+MERCADO_PAGO_ACCESS_TOKEN=placeholder
+MERCADO_PAGO_WEBHOOK_SECRET=placeholder
+RESEND_API_KEY=placeholder
+GOOGLE_CLIENT_ID=placeholder
+GOOGLE_CLIENT_SECRET=placeholder
+FACEBOOK_CLIENT_ID=placeholder
+FACEBOOK_CLIENT_SECRET=placeholder
+BETTER_AUTH_SECRET=placeholder
